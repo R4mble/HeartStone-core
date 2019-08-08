@@ -5,11 +5,8 @@ import heartstone.exception.ShamanTotemFullException;
 import heartstone.model.GameCharacter;
 import heartstone.model.dto.Profession;
 
-
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-
 
 // 技能释放器
 public class SkillInvoker {

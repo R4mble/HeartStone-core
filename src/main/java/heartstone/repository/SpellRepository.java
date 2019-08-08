@@ -4,7 +4,7 @@ import heartstone.model.entity.SpellEntity;
 
 public class SpellRepository{
 
-    SpellEntity findByName(String name) {
+    public SpellEntity findByName(String name) {
 
     }
 }

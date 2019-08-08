@@ -2,9 +2,18 @@ package heartstone.repository;
 
 import heartstone.model.entity.MinionEntity;
 
-public class MinionRepository{
+import java.util.ArrayList;
+import java.util.List;
 
-    MinionEntity findByName(String name) {
+public class MinionRepository {
+
+    static List<MinionEntity> minionEntities = new ArrayList<>();
+
+    static {
+
+    }
+
+    public MinionEntity findByName(String name) {
 
     }
 }

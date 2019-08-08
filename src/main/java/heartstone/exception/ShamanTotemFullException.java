@@ -1,9 +1,6 @@
 package heartstone.exception;
 
 
- *
- *
- */
 public class ShamanTotemFullException extends RuntimeException {
 
     public ShamanTotemFullException() {

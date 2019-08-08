@@ -4,7 +4,7 @@ import heartstone.model.entity.WeaponEntity;
 
 public class WeaponRepository{
 
-    WeaponEntity findByName(String name) {
+    public WeaponEntity findByName(String name) {
 
     }
 }

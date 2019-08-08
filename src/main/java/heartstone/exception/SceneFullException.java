@@ -1,8 +1,5 @@
 package heartstone.exception;
 
-
- *
- */
 public class SceneFullException extends RuntimeException {
 
     public SceneFullException() {
