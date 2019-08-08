@@ -3,12 +3,7 @@ package heartstone.model.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Map;
 
-
- *
- *
- */
 @Entity
 @Table(name = "player")
 @Data
