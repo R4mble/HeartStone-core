@@ -1,11 +1,10 @@
 package heartstone.invoker;
 
+import heartstone.box.Box;
 import heartstone.exception.ShamanTotemFullException;
 import heartstone.model.GameCharacter;
-import heartstone.model.dto.Minion;
-import heartstone.model.dto.Profession;
-import heartstone.repository.MinionRepository;
-import heartstone.repository.WeaponRepository;
+import heartstone.model.Minion;
+import heartstone.model.Profession;
 
 
 import java.util.ArrayList;
@@ -16,17 +15,9 @@ import java.util.Random;
 import static heartstone.invoker.Commons.causeDamage;
 
 // 九职业技能
-class Skill {
-    private final MinionRepository mr;
-    private final WeaponRepository wr;
+public class Skill {
 
-    private final CardDrawer cd;
-
-    public Skill(MinionRepository mr, WeaponRepository wr, CardDrawer cd) {
-        this.mr = mr;
-        this.wr = wr;
-        this.cd = cd;
-    }
+    private CardDrawer cd;
 
     @ManaCost(value = 2, desc = "战士技能")
     public void add2Armor(Profession src) {
@@ -42,7 +33,7 @@ class Skill {
     @ManaCost(value = 2, desc = "圣骑士技能")
     public void geneReporter(Profession src) {
         List<Minion> scene = src.getScene();
-        scene.add(mr.findByName("报告兵").toDTO());
+        scene.add(Box.getMinion("报告兵"));
         src.setScene(scene);
     }
 
@@ -63,7 +54,7 @@ class Skill {
 
     @ManaCost(value = 2, desc = "潜行者技能")
     public void equipDagger(Profession src) {
-        src.setWeapon(wr.findByName("匕首").toDTO());
+        src.setWeapon(Box.getWeapon("匕首"));
     }
 
     @ManaCost(value = 2, desc = "术士技能")
@@ -78,10 +69,10 @@ class Skill {
         List<Minion> scene = src.getScene();
 
         List<Minion> basicTotems = Arrays.asList(
-                mr.findByName("灼热图腾").toDTO(),
-                mr.findByName("法强图腾").toDTO(),
-                mr.findByName("治疗图腾").toDTO(),
-                mr.findByName("嘲讽图腾").toDTO()
+                Box.getMinion("灼热图腾"),
+                Box.getMinion("法强图腾"),
+                Box.getMinion("治疗图腾"),
+                Box.getMinion("嘲讽图腾")
         );
 
         List<Minion> availableTotems = new ArrayList<>();

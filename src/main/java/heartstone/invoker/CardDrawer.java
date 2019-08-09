@@ -1,7 +1,7 @@
 package heartstone.invoker;
 
 import heartstone.model.Card;
-import heartstone.model.dto.Profession;
+import heartstone.model.Profession;
 
 // 抽牌器
 public class CardDrawer {

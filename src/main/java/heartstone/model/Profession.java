@@ -1,7 +1,5 @@
-package heartstone.model.dto;
+package heartstone.model;
 
-import heartstone.model.Card;
-import heartstone.model.GameCharacter;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

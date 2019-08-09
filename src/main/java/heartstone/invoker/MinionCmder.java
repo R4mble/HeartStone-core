@@ -1,20 +1,16 @@
 package heartstone.invoker;
 
 import com.sun.istack.internal.Nullable;
-import heartstone.constant.Consts;
-import heartstone.exception.ManaLessException;
+import heartstone.constant.Const;
 import heartstone.exception.CardNotFoundException;
+import heartstone.exception.ManaLessException;
 import heartstone.exception.SceneFullException;
 import heartstone.model.GameCharacter;
-import heartstone.model.dto.Minion;
-import heartstone.model.dto.Profession;
-import heartstone.repository.MinionRepository;
-
+import heartstone.model.Minion;
+import heartstone.model.Profession;
 
 // 随从派遣器
-public class MinionCommander {
-
-    private MinionRepository mr;
+public class MinionCmder {
 
     public void send(Profession src, Minion minion, @Nullable GameCharacter tar) {
 
@@ -26,7 +22,7 @@ public class MinionCommander {
             throw new CardNotFoundException();
         }
 
-        if (src.getScene().size() >= Consts.MAX_SCENE) {
+        if (src.getScene().size() >= Const.MAX_SCENE) {
             throw new SceneFullException();
         }
 

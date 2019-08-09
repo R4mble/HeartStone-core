@@ -1,6 +1,5 @@
-package heartstone.model.dto;
+package heartstone.model;
 
-import heartstone.model.Card;
 import lombok.Data;
 
 @Data

@@ -3,17 +3,17 @@ package heartstone.invoker;
 import com.sun.istack.internal.Nullable;
 import heartstone.model.Card;
 import heartstone.model.GameCharacter;
-import heartstone.model.dto.Minion;
-import heartstone.model.dto.Profession;
-import heartstone.model.dto.Spell;
+import heartstone.model.Minion;
+import heartstone.model.Profession;
+import heartstone.model.Spell;
 
 public class CardExecutor {
 
-    private SpellInvoker spellInvoker;
+    private static SpellInvoker spellInvoker;
 
-    private MinionCommander minionCommander;
+    private static MinionCmder minionCommander;
 
-    public void exec(Profession src, Card card, @Nullable GameCharacter tar) {
+    public static void exec(Profession src, Card card, @Nullable GameCharacter tar) {
         if (card instanceof Minion) {
             minionCommander.send(src, (Minion)card, tar);
         } else if (card instanceof Spell) {

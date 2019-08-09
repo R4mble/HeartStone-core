@@ -1,10 +1,10 @@
-package heartstone.model.dto;
+package heartstone.model;
 
 import heartstone.model.Card;
 import lombok.Data;
 
 @Data
-public class Weapon implements Card {
+public class Weapon implements Card, Cloneable {
     public String name;
     public int attack;
     public int curAttack;
@@ -25,5 +25,15 @@ public class Weapon implements Card {
     public void setDurability(int durability) {
         this.durability = durability;
         this.curDurability = durability;
+    }
+
+    @Override
+    public Object clone() {
+        try {
+            return super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

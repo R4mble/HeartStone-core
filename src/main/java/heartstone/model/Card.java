@@ -1,7 +1,6 @@
 package heartstone.model;
 
-
- * 卡牌接口, 包括随从和法术
+/*
+ * 表示卡牌的接口, 包括随从,法术,武器
  */
-public interface Card {
-}
+public interface Card {}

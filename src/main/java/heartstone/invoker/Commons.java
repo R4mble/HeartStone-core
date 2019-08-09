@@ -1,8 +1,8 @@
 package heartstone.invoker;
 
 import heartstone.model.GameCharacter;
-import heartstone.model.dto.Minion;
-import heartstone.model.dto.Profession;
+import heartstone.model.Minion;
+import heartstone.model.Profession;
 
 // 公共函数
 public class Commons {

@@ -5,14 +5,11 @@ import heartstone.exception.ManaLessException;
 import heartstone.exception.CardNotFoundException;
 import heartstone.exception.WrongTargetException;
 import heartstone.model.GameCharacter;
-import heartstone.model.dto.Profession;
-import heartstone.model.dto.Spell;
-import heartstone.repository.SpellRepository;
+import heartstone.model.Profession;
+import heartstone.model.Spell;
 
 // 法术释放器
 public class SpellInvoker {
-
-    private SpellRepository sr;
 
     public void invoke(Profession src, Spell spell, @Nullable GameCharacter tar)  {
 

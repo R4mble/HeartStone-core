@@ -1,13 +1,11 @@
-package heartstone.model.dto;
+package heartstone.model;
 
-import heartstone.model.Card;
-import heartstone.model.GameCharacter;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class Minion implements Card, GameCharacter {
+public class Minion implements Card, GameCharacter, Cloneable {
     private String name;
     private int cost;
     private int curCost;
@@ -15,14 +13,23 @@ public class Minion implements Card, GameCharacter {
     private int curAttack;
     private int blood;
     private int curBlood;
-    private String battleCry;
+    private String properties;
     private String profession;
 
-    public Minion(String name, int cost, int attack, int blood, String battleCry) {
+    public Minion(String name, int cost, int attack, int blood) {
         this.name = name;
         this.cost = cost;
         this.attack = attack;
         this.blood = blood;
-        this.battleCry = battleCry;
+    }
+
+    @Override
+    public Object clone() {
+        try {
+            return super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
