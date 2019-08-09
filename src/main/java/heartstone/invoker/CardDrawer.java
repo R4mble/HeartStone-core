@@ -6,7 +6,7 @@ import heartstone.model.Profession;
 // 抽牌器
 public class CardDrawer {
 
-    public void draw(Profession src, int num) {
+    public static void draw(Profession src, int num) {
         while (num != 0) {
             Card card = src.getCardLibrary().remove(0);
             src.getHandCard().add(card);

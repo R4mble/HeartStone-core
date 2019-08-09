@@ -1,4 +1,3 @@
-
 import heartstone.box.Box;
 import heartstone.exception.ManaLessException;
 import heartstone.exception.ShamanTotemFullException;

@@ -65,7 +65,6 @@ public class Skill {
 
     @ManaCost(value = 2, desc = "萨满技能")
     public void geneTotem(Profession src) throws ShamanTotemFullException {
-
         List<Minion> scene = src.getScene();
 
         List<Minion> basicTotems = Arrays.asList(

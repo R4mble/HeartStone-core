@@ -26,7 +26,7 @@ public class MinionCmd {
             throw new SceneFullException();
         }
 
-        if (minion.getProperties().equals("BattleCry")) {
+        if ("BattleCry".equals(minion.getProperties())) {
             if (minion.getProperties().startsWith("hurt")) {
                 Commons.causeDamage(tar, Integer.parseInt(minion.getProperties().substring(4)));
             }

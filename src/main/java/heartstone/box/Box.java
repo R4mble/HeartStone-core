@@ -3,6 +3,7 @@ package heartstone.box;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import heartstone.model.Minion;
 import heartstone.model.Profession;
+import heartstone.model.Spell;
 import heartstone.model.Weapon;
 
 import java.io.File;
@@ -18,18 +19,20 @@ public class Box {
     private static ObjectMapper mapper = new ObjectMapper();
     private static Map<String, Minion> minions = new HashMap<>();
     private static Map<String, Weapon> weapons = new HashMap<>();
+    private static Map<String, Spell> spells = new HashMap<>();
     private static Map<String, Profession> professions = new HashMap<>();
-    private static String filePrefix = "C:/Users/Ramble/Desktop/MyGitHub/HeartStone-core/src/main/resources/";
-    private static String fileSuffix = ".json";
 
     static {
         weapons.put("匕首", new Weapon("匕首", 1, 1));
+        spells.put("幸运币", new Spell("幸运币", 0, "cu"));
 
         read("minion", minions, Minion.class);
         read("profession", professions, Profession.class);
     }
 
     private static void read(String fileName, Map map, Class c) {
+        String filePrefix = "C:/Users/Ramble/Desktop/MyGitHub/HeartStone-core/src/main/resources/";
+        String fileSuffix = ".json";
         File file = new File(filePrefix + fileName + fileSuffix);
         try {
             List list = mapper.readValue(file, List.class);
@@ -62,5 +65,9 @@ public class Box {
 
     public static Profession getProfession(String name) {
         return (Profession) professions.get(name).clone();
+    }
+
+    public static Spell getSpell(String name) {
+        return (Spell) spells.get(name).clone();
     }
 }
