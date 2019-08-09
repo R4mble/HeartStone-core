@@ -41,14 +41,15 @@ public class MinionTest {
         Profession shaman = Box.getProfession("萨满");
         Profession fashi = Box.getProfession("法师");
 
-        Minion m = Box.getMinion("精灵弓箭手");
-        shaman.getHandCard().add(m);
+        Minion elf = Box.getMinion("精灵弓箭手");
+        shaman.getHandCard().add(elf);
         shaman.setCrystal(4);
-        CardExecutor.exec(shaman, m, fashi);
+        CardExecutor.exec(shaman, elf, fashi);
 
         assert fashi.getCurBlood() == 29;
     }
 
+    @Test
     public void attack() {
 
     }
