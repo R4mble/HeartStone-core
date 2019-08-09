@@ -10,9 +10,9 @@ import heartstone.model.Minion;
 import heartstone.model.Profession;
 
 // 随从派遣器
-public class MinionCmder {
+public class MinionCmd {
 
-    public void send(Profession src, Minion minion, @Nullable GameCharacter tar) {
+    public static void send(Profession src, Minion minion, @Nullable GameCharacter tar) {
 
         if (src.getCurCrystal() < minion.getCost()) {
             throw new ManaLessException();
@@ -26,12 +26,12 @@ public class MinionCmder {
             throw new SceneFullException();
         }
 
-        if (minion.getBattleCry() != null) {
-            if (minion.getBattleCry().startsWith("hurt")) {
-                Commons.causeDamage(tar, Integer.parseInt(minion.getBattleCry().substring(4)));
+        if (minion.getProperties().equals("BattleCry")) {
+            if (minion.getProperties().startsWith("hurt")) {
+                Commons.causeDamage(tar, Integer.parseInt(minion.getProperties().substring(4)));
             }
-            if (minion.getBattleCry().startsWith("heal")) {
-                Commons.heal(tar, Integer.parseInt(minion.getBattleCry().substring(4)));
+            if (minion.getProperties().startsWith("heal")) {
+                Commons.heal(tar, Integer.parseInt(minion.getProperties().substring(4)));
             }
         }
 

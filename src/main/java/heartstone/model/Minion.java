@@ -16,7 +16,7 @@ public class Minion implements Card, GameCharacter, Cloneable {
     private String properties;
     private String profession;
 
-    public Minion(String name, int cost, int attack, int blood) {
+    public Minion(String name, Integer cost, Integer attack, Integer blood) {
         this.name = name;
         this.cost = cost;
         this.attack = attack;

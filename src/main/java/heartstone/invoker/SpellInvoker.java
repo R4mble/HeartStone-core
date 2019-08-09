@@ -11,7 +11,7 @@ import heartstone.model.Spell;
 // 法术释放器
 public class SpellInvoker {
 
-    public void invoke(Profession src, Spell spell, @Nullable GameCharacter tar)  {
+    public static void invoke(Profession src, Spell spell, @Nullable GameCharacter tar)  {
 
         if (src.getCurCrystal() < spell.getCost()) {
             throw new ManaLessException();

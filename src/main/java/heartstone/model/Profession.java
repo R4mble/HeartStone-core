@@ -7,8 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Data
-@NoArgsConstructor
-public class Profession implements GameCharacter {
+public class Profession implements GameCharacter, Cloneable {
     private String name;
     private String skill;
     private Weapon weapon;
@@ -34,5 +33,15 @@ public class Profession implements GameCharacter {
 
     public int getHealth() {
         return curBlood + armor;
+    }
+
+    @Override
+    public Object clone() {
+        try {
+            return super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

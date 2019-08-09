@@ -1,6 +1,5 @@
 package heartstone.exception;
 
-
 public class ManaLessException extends RuntimeException {
     
     public ManaLessException() {

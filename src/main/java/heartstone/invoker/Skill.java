@@ -17,7 +17,7 @@ import static heartstone.invoker.Commons.causeDamage;
 // 九职业技能
 public class Skill {
 
-    private CardDrawer cd;
+    private CardDrawer cd = new CardDrawer();
 
     @ManaCost(value = 2, desc = "战士技能")
     public void add2Armor(Profession src) {

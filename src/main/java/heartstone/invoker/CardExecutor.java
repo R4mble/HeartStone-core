@@ -9,15 +9,11 @@ import heartstone.model.Spell;
 
 public class CardExecutor {
 
-    private static SpellInvoker spellInvoker;
-
-    private static MinionCmder minionCommander;
-
     public static void exec(Profession src, Card card, @Nullable GameCharacter tar) {
         if (card instanceof Minion) {
-            minionCommander.send(src, (Minion)card, tar);
+            MinionCmd.send(src, (Minion)card, tar);
         } else if (card instanceof Spell) {
-            spellInvoker.invoke(src, (Spell)card, tar);
+            SpellInvoker.invoke(src, (Spell)card, tar);
         }
     }
 }

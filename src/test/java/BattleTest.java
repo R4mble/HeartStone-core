@@ -1,7 +1,7 @@
 //
 //import heartstone.invoker.CardDrawer;
 //import heartstone.invoker.CardExecutor;
-//import heartstone.invoker.MinionCmder;
+//import heartstone.invoker.MinionCmd;
 //import heartstone.invoker.SkillInvoker;
 //import heartstone.model.Card;
 //import heartstone.model.Minion;
@@ -21,7 +21,7 @@
 //    private SpellRepository sr;
 //    private CardDrawer cd;
 //    private CardExecutor cardExecutor;
-//    private MinionCmder mc;
+//    private MinionCmd mc;
 //
 //    @Test
 //    public void battleBegin() {

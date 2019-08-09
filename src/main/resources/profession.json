@@ -1,0 +1,11 @@
+[
+  {"name": "圣骑士", "skill": "geneReporter"},
+  {"name": "战士", "skill": "add2Armor"},
+  {"name": "牧师", "skill": "heal"},
+  {"name": "法师", "skill": "fire"},
+  {"name": "德鲁伊", "skill": "reshape"},
+  {"name": "萨满", "skill": "geneTotem"},
+  {"name": "猎人", "skill": "shoot"},
+  {"name": "潜行者", "skill": "equipDagger"},
+  {"name": "术士", "skill": "drawCard"}
+]

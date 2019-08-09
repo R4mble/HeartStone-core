@@ -1,6 +1,5 @@
 package heartstone.exception;
 
-
 public class AttackZeroException extends Throwable {
 
     public AttackZeroException() {
