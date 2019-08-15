@@ -24,14 +24,14 @@ public class Box {
 
     static {
         weapons.put("匕首", new Weapon("匕首", 1, 1));
-        spells.put("幸运币", new Spell("幸运币", 0, "cu"));
 
         read("minion", minions, Minion.class);
+        read("spell", spells, Spell.class);
         read("profession", professions, Profession.class);
     }
 
     private static void read(String fileName, Map map, Class c) {
-        String filePrefix = "C:/Users/Ramble/Desktop/MyGitHub/HeartStone-core/src/main/resources/";
+        String filePrefix = "src/main/resources/";
         String fileSuffix = ".json";
         File file = new File(filePrefix + fileName + fileSuffix);
         try {
@@ -41,13 +41,20 @@ public class Box {
                 Object t = null;
                 if (c == Profession.class) {
                     t = c.getConstructor(String.class, String.class).newInstance(
-                            o.get("name").toString(), o.get("skill").toString());
+                            o.get("name").toString(),
+                            o.get("skill").toString());
                 } else if (c == Minion.class) {
                     t = c.getConstructor(String.class, Integer.class, Integer.class, Integer.class).newInstance(
-                            o.get("name").toString(), Integer.valueOf(o.get("cost").toString()), Integer.valueOf(o.get("attack").toString()),
+                            o.get("name").toString(),
+                            Integer.valueOf(o.get("cost").toString()),
+                            Integer.valueOf(o.get("attack").toString()),
                             Integer.valueOf(o.get("blood").toString()));
+                } else if (c == Spell.class) {
+                    t = c.getConstructor(String.class, Integer.class, String.class).newInstance(
+                            o.get("name").toString(),
+                            Integer.valueOf(o.get("cost").toString()),
+                            o.get("desc").toString());
                 }
-
                 map.put(o.get("name").toString(), t);
             }
         } catch (Exception e) {

@@ -1,0 +1,6 @@
+[
+  {"name":  "幸运币", "cost": 0, "desc": "addCurCrystal1"},
+  {"name":  "火球术", "cost": 4, "desc": "hurt6"},
+  {"name":  "炎爆", "cost": 10, "desc": "hurt10"},
+  {"name":  "暗影箭", "cost": 10, "desc": "hurtMinion4"}
+]

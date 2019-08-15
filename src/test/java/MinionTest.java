@@ -1,6 +1,6 @@
 import heartstone.box.Box;
 import heartstone.invoker.CardDrawer;
-import heartstone.invoker.CardExecutor;
+import heartstone.invoker.CardExec;
 import heartstone.invoker.SkillInvoker;
 import heartstone.model.Card;
 import heartstone.model.Minion;
@@ -44,7 +44,7 @@ public class MinionTest {
         Minion elf = Box.getMinion("精灵弓箭手");
         shaman.getHandCard().add(elf);
         shaman.setCrystal(4);
-        CardExecutor.exec(shaman, elf, fashi);
+        CardExec.exec(shaman, elf, fashi);
 
         assert fashi.getCurBlood() == 29;
     }

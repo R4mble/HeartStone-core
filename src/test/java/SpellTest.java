@@ -1,27 +1,28 @@
 import heartstone.box.Box;
+import heartstone.invoker.CardExec;
 import heartstone.invoker.SkillInvoker;
-import heartstone.invoker.SpellInvoker;
 import heartstone.model.Profession;
 import heartstone.model.Spell;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 public class SpellTest {
     private SkillInvoker skillInvoker;
-    private SpellInvoker spellInvoker;
 
     @Test
     public void testLuckyCoin() {
         Profession shaman = Box.getProfession("萨满");
+        Spell luckyCoin = Box.getSpell("幸运币");
+        shaman.getHandCard().addAll(Arrays.asList(luckyCoin, luckyCoin, luckyCoin, luckyCoin));
 
-        Spell luckyCoin = Box.getSpell("luckyCoin");
-
-        SpellInvoker.invoke(shaman, luckyCoin, null);
+        CardExec.exec(shaman, luckyCoin, null);
 
         assert shaman.getCurCrystal() == 1;
 
-        SpellInvoker.invoke(shaman, luckyCoin, null);
-        SpellInvoker.invoke(shaman, luckyCoin, null);
-        SpellInvoker.invoke(shaman, luckyCoin, null);
+        CardExec.exec(shaman, luckyCoin, null);
+        CardExec.exec(shaman, luckyCoin, null);
+        CardExec.exec(shaman, luckyCoin, null);
 
         assert shaman.getCurCrystal() == 4;
     }
@@ -31,11 +32,12 @@ public class SpellTest {
         Profession zie = Box.getProfession("潜行者");
         Profession fashi = Box.getProfession("法师");
 
-        Spell fireBall = Box.getSpell("fireBall");
+        Spell fireBall = Box.getSpell("火球术");
+        zie.getHandCard().add(fireBall);
 
         zie.setCrystal(6);
 
-        SpellInvoker.invoke(zie, fireBall, fashi);
+        CardExec.exec(zie, fireBall, fashi);
 
         assert zie.getCurCrystal() == 2;
         assert fashi.getCurBlood() == 24;

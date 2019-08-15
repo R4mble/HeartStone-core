@@ -10,9 +10,9 @@ import heartstone.model.Minion;
 import heartstone.model.Profession;
 
 // 随从派遣器
-public class MinionCmd {
+class MinionCmd {
 
-    public static void send(Profession src, Minion minion, @Nullable GameCharacter tar) {
+    static void send(Profession src, Minion minion, @Nullable GameCharacter tar) {
 
         if (src.getCurCrystal() < minion.getCost()) {
             throw new ManaLessException();

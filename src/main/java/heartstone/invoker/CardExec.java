@@ -7,7 +7,7 @@ import heartstone.model.Minion;
 import heartstone.model.Profession;
 import heartstone.model.Spell;
 
-public class CardExecutor {
+public class CardExec {
 
     public static void exec(Profession src, Card card, @Nullable GameCharacter tar) {
         if (card instanceof Minion) {

@@ -15,9 +15,7 @@ import java.util.Random;
 import static heartstone.invoker.Commons.causeDamage;
 
 // 九职业技能
-public class Skill {
-
-    private CardDrawer cd = new CardDrawer();
+class Skill {
 
     @ManaCost(value = 2, desc = "战士技能")
     public void add2Armor(Profession src) {
@@ -60,7 +58,7 @@ public class Skill {
     @ManaCost(value = 2, desc = "术士技能")
     public void drawCard(Profession src) {
         causeDamage(src, 2);
-        cd.draw(src, 1);
+        CardDrawer.draw(src, 1);
     }
 
     @ManaCost(value = 2, desc = "萨满技能")

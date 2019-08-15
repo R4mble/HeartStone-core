@@ -1,6 +1,6 @@
 import heartstone.box.Box;
 import heartstone.invoker.CardDrawer;
-import heartstone.invoker.CardExecutor;
+import heartstone.invoker.CardExec;
 import heartstone.model.Card;
 import heartstone.model.Minion;
 import heartstone.model.Profession;
@@ -58,9 +58,9 @@ public class BattleTest {
         fashi.setCrystal(3);
 
         // 法师使用巫医
-        CardExecutor.exec(fashi, wuyi, shengqishi);
+        CardExec.exec(fashi, wuyi, shengqishi);
         // 法师使用幸运币
-        CardExecutor.exec(fashi, luckCoin, null);
+        CardExec.exec(fashi, luckCoin, null);
 
         assert fashi.getCurCrystal() == 3;
 
