@@ -14,9 +14,12 @@ public class Profession implements GameCharacter, Cloneable {
     private int attack;
     private int blood = 30;
     private int curBlood = 30;
+    // 护甲
     private int armor;
     private int crystal;
     private int curCrystal;
+    // 法术伤害
+    private int mageDamage;
     private List<Card> handCard = new LinkedList<>();
     private List<Minion> scene = new LinkedList<>();
     private List<Card> cardLibrary = new LinkedList<>();
