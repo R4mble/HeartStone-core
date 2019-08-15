@@ -1,8 +1,6 @@
---
--- Created by IntelliJ IDEA.
--- User: Ramble
--- Date: 2019/8/15
--- Time: 23:08
--- To change this template use File | Settings | File Templates.
---
+local _ = require 'fun'
 
+local t = {}
+for _it, k, v in _.iter({ a = 5, b = 6, c = 7}) do t[#t + 1] = k end
+table.sort(t)
+for _it, v in _.iter(t) do print(_it, v) end
