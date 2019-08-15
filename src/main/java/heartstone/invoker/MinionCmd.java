@@ -5,6 +5,7 @@ import heartstone.constant.Const;
 import heartstone.exception.CardNotFoundException;
 import heartstone.exception.ManaLessException;
 import heartstone.exception.SceneFullException;
+import heartstone.exception.WrongTargetException;
 import heartstone.model.GameCharacter;
 import heartstone.model.Minion;
 import heartstone.model.Profession;
@@ -26,12 +27,21 @@ public class MinionCmd {
             throw new SceneFullException();
         }
 
-        if ("BattleCry".equals(minion.getProperties())) {
-            if (minion.getProperties().startsWith("hurt")) {
-                Commons.causeDamage(tar, Integer.parseInt(minion.getProperties().substring(4)));
+        if (minion.getProperties().contains("BattleCry")) {
+            String[] cry =  minion.getBattleCry().split("_");
+            if (cry[1].equals("hero") && tar instanceof Minion) {
+                throw new WrongTargetException();
             }
-            if (minion.getProperties().startsWith("heal")) {
-                Commons.heal(tar, Integer.parseInt(minion.getProperties().substring(4)));
+
+            if (cry[1].equals("minion") && tar instanceof Profession) {
+                throw new WrongTargetException();
+            }
+
+            if (cry[0].equals("hurt")) {
+                Commons.causeDamage(tar, Integer.parseInt(cry[2]));
+            }
+            if (cry[0].equals("heal")) {
+                Commons.heal(tar, Integer.parseInt(cry[2]));
             }
         }
 
