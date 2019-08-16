@@ -32,9 +32,11 @@ class MinionCmd {
             throw new SceneFullException();
         }
 
-        // 执行战吼
-        if (PropertyChecker.check(minion.getProperties()).contains("战吼")) {
-            DescInvoker.invoke(minion.getBattleCry(), src, tar);
+        if (minion.getProperties() != null) {
+            // 执行战吼
+            if (PropertyChecker.check(minion.getProperties()).contains("战吼")) {
+                DescInvoker.invoke(minion.getBattleCry(), src, tar);
+            }
         }
 
         // 移除手牌

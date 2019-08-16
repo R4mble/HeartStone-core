@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class PropertyChecker {
 
-    // 属性: 战吼, 嘲讽, 亡语, 吸血, 风怒, 突袭, 冲锋, 圣盾, 复生
+    // 解析属性
     public static List<String> check(String properties) {
         String[] propertyArr = {"战吼", "嘲讽", "亡语", "吸血", "风怒", "突袭", "冲锋", "圣盾", "复生"};
         List<String> res = new ArrayList<>();

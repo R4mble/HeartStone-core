@@ -6,7 +6,7 @@
   {"name": "灼热图腾", "cost": "1", "attack": "1", "blood": "1"},
   {"name": "淡水鳄", "cost": "2", "attack": "2", "blood": "3"},
   {"name": "迅猛龙", "cost": "2", "attack": "3", "blood": "2"},
-  {"name": "精灵弓箭手", "cost": "1", "attack": "1", "blood": "1"},
+  {"name": "精灵弓箭手", "cost": "1", "attack": "1", "blood": "1", "properties": "100000000", "battleCry": "hurt_any_1"},
   {"name": "巫医", "cost": "1", "attack": "2", "blood": "1", "properties": "100000000", "battleCry": "heal_any_2"},
   {"name": "闪金镇步兵", "cost": "2", "attack": "1", "blood": "2"},
   {"name": "工程师学徒", "cost": "2", "attack": "1", "blood": "1"},

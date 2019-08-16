@@ -46,7 +46,6 @@ public class SpellTest {
     @Test
     public void test() {
 
-
     }
 
 
