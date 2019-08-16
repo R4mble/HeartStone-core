@@ -1,7 +1,7 @@
 package heartstone.invoker;
 
 import heartstone.exception.ManaLessException;
-import heartstone.exception.ShamanTotemFullException;
+import heartstone.exception.TotemFullException;
 import heartstone.model.GameCharacter;
 import heartstone.model.Profession;
 
@@ -30,8 +30,8 @@ public class SkillInvoker {
         } catch (IllegalAccessException | NoSuchMethodException e) {
             System.out.println(e);
         } catch (InvocationTargetException e) {
-            if (e.getTargetException() instanceof ShamanTotemFullException) {
-                throw new ShamanTotemFullException();
+            if (e.getTargetException() instanceof TotemFullException) {
+                throw new TotemFullException();
             }
         }
     }

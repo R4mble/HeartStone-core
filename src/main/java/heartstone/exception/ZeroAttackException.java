@@ -1,8 +1,8 @@
 package heartstone.exception;
 
-public class AttackZeroException extends Throwable {
+public class ZeroAttackException extends RuntimeException {
 
-    public AttackZeroException() {
+    public ZeroAttackException() {
         super("攻击力为0, 无法攻击其他角色!");
     }
 }

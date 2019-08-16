@@ -1,6 +1,6 @@
 import heartstone.box.Box;
 import heartstone.exception.ManaLessException;
-import heartstone.exception.ShamanTotemFullException;
+import heartstone.exception.TotemFullException;
 import heartstone.invoker.SkillInvoker;
 import heartstone.model.Card;
 import heartstone.model.Minion;
@@ -83,7 +83,7 @@ public class SkillTest {
         try {
             skillInvoker.invoke(shaman);
         } catch (Exception e) {
-            assert e instanceof ShamanTotemFullException;
+            assert e instanceof TotemFullException;
         }
 
         assert shaman.getCurCrystal() == 2;

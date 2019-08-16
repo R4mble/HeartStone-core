@@ -1,7 +1,7 @@
 package heartstone.invoker;
 
 import heartstone.box.Box;
-import heartstone.exception.ShamanTotemFullException;
+import heartstone.exception.TotemFullException;
 import heartstone.model.GameCharacter;
 import heartstone.model.Minion;
 import heartstone.model.Profession;
@@ -62,7 +62,7 @@ class Skill {
     }
 
     @ManaCost(value = 2, desc = "萨满技能")
-    public void geneTotem(Profession src) throws ShamanTotemFullException {
+    public void geneTotem(Profession src) throws TotemFullException {
         List<Minion> scene = src.getScene();
 
         List<Minion> basicTotems = Arrays.asList(
@@ -81,7 +81,7 @@ class Skill {
         });
 
         if (availableTotems.size() == 0) {
-            throw new ShamanTotemFullException();
+            throw new TotemFullException();
         }
 
         int randomIndex = new Random().nextInt(availableTotems.size());

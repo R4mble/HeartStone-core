@@ -47,4 +47,5 @@ public class Profession implements GameCharacter, Cloneable {
         }
         return null;
     }
+
 }

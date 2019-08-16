@@ -1,6 +1,8 @@
 [
-  {"name":  "幸运币", "cost": 0, "desc": "addCurCrystal_self_1"},
-  {"name":  "火球术", "cost": 4, "desc": "hurt_any_6"},
-  {"name":  "炎爆", "cost": 10, "desc": "hurt_any_10"},
-  {"name":  "暗影箭", "cost": 10, "desc": "hurt_minion_4"}
+  {"name":  "幸运币", "cost": 0, "desc": "addCurCrystal_self_1", "profession": "All"},
+  {"name":  "火球术", "cost": 4, "desc": "hurt_any_6", "profession": "法师"},
+  {"name":  "炎爆", "cost": 10, "desc": "hurt_any_10", "profession": "法师"},
+  {"name":  "烈焰风暴", "cost": 7, "desc": "aoe_enemyMinion_4", "profession": "法师"},
+  {"name":  "奉献", "cost": 4, "desc": "aoe_enemyMinion_2", "profession": "圣骑士"},
+  {"name":  "暗影箭", "cost": 10, "desc": "hurt_minion_4", "profession": "术士"}
 ]

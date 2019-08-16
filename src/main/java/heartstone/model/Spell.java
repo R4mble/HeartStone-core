@@ -7,11 +7,13 @@ public class Spell implements Card , Cloneable{
     private String name;
     private Integer cost;
     private String desc;
+    private String profession;
 
-    public Spell(String name, Integer cost, String desc) {
+    public Spell(String name, Integer cost, String desc, String profession) {
         this.name = name;
         this.cost = cost;
         this.desc = desc;
+        this.profession = profession;
     }
 
     @Override

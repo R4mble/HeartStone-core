@@ -1,6 +1,7 @@
 import heartstone.box.Box;
 import heartstone.invoker.CardDrawer;
 import heartstone.invoker.CardExec;
+import heartstone.invoker.MinionCmd;
 import heartstone.model.Card;
 import heartstone.model.Minion;
 import heartstone.model.Profession;
@@ -67,6 +68,21 @@ public class BattleTest {
         assert shengqishi.getCurBlood() == 25;
 
         shengqishi.setCrystal(10);
+    }
+
+    @Test
+    public void attack() {
+        Profession fashi = Box.getProfession("法师");
+        Profession shengqishi = Box.getProfession("圣骑士");
+
+        Minion wuyi1 = Box.getMinion("巫医");
+        Minion wuyi2 = Box.getMinion("巫医");
+
+        fashi.getScene().add(wuyi1);
+        shengqishi.getScene().add(wuyi2);
+
+        MinionCmd.attack(fashi, wuyi1, wuyi2);
+
 
     }
 

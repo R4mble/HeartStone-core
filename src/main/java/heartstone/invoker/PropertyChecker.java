@@ -1,6 +1,7 @@
 package heartstone.invoker;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -9,9 +10,10 @@ import java.util.List;
  */
 public class PropertyChecker {
 
+    private static String[] propertyArr = {"战吼", "嘲讽", "亡语", "吸血", "风怒", "突袭", "冲锋", "圣盾", "复生"};
+
     // 解析属性
-    public static List<String> check(String properties) {
-        String[] propertyArr = {"战吼", "嘲讽", "亡语", "吸血", "风怒", "突袭", "冲锋", "圣盾", "复生"};
+    public static List<String> read(String properties) {
         List<String> res = new ArrayList<>();
         for (int i = 0; i < properties.length(); i++) {
             if (Integer.parseInt(String.valueOf(properties.charAt(i))) == 1) {
@@ -19,5 +21,19 @@ public class PropertyChecker {
             }
         }
         return res;
+    }
+
+    // 生成属性
+    public static String write(List<String> properties) {
+        StringBuilder sb = new StringBuilder();
+
+        for (String s : propertyArr) {
+            if (properties.contains(s)) {
+                sb.append(1);
+            } else {
+                sb.append(0);
+            }
+        }
+        return sb.toString();
     }
 }

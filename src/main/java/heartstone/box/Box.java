@@ -62,10 +62,11 @@ public class Box {
                     }
 
                 } else if (c == Spell.class) {
-                    t = c.getConstructor(String.class, Integer.class, String.class).newInstance(
+                    t = c.getConstructor(String.class, Integer.class, String.class, String.class).newInstance(
                             o.get("name").toString(),
                             Integer.valueOf(o.get("cost").toString()),
-                            o.get("desc").toString());
+                            o.get("desc").toString(),
+                            o.get("profession").toString());
                 }
                 map.put(o.get("name").toString(), t);
             }

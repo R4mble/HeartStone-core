@@ -1,6 +1,6 @@
 package heartstone.invoker;
 
-import heartstone.exception.WrongTargetException;
+import heartstone.exception.TargetWrongException;
 import heartstone.model.GameCharacter;
 import heartstone.model.Minion;
 import heartstone.model.Profession;
@@ -17,7 +17,7 @@ public class DescInvoker {
         // 检查目标
         if ((cry[1].equals("hero") && tar instanceof Minion)
          || (cry[1].equals("minion") && tar instanceof Profession)) {
-            throw new WrongTargetException();
+            throw new TargetWrongException();
         }
 
         if (cry[0].equals("hurt")) {
