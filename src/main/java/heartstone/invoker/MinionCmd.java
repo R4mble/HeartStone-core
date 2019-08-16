@@ -10,43 +10,38 @@ import heartstone.model.GameCharacter;
 import heartstone.model.Minion;
 import heartstone.model.Profession;
 
+import java.util.Properties;
+
 // 随从派遣器
 class MinionCmd {
 
     static void send(Profession src, Minion minion, @Nullable GameCharacter tar) {
 
+        // 检查水晶
         if (src.getCurCrystal() < minion.getCost()) {
             throw new ManaLessException();
         }
 
+        // 检查手牌
         if (!src.getHandCard().contains(minion)) {
             throw new CardNotFoundException();
         }
 
+        // 检查场面
         if (src.getScene().size() >= Const.MAX_SCENE) {
             throw new SceneFullException();
         }
 
-        if (minion.getProperties().contains("BattleCry")) {
-            String[] cry =  minion.getBattleCry().split("_");
-            if (cry[1].equals("hero") && tar instanceof Minion) {
-                throw new WrongTargetException();
-            }
-
-            if (cry[1].equals("minion") && tar instanceof Profession) {
-                throw new WrongTargetException();
-            }
-
-            if (cry[0].equals("hurt")) {
-                Commons.causeDamage(tar, Integer.parseInt(cry[2]));
-            }
-            if (cry[0].equals("heal")) {
-                Commons.heal(tar, Integer.parseInt(cry[2]));
-            }
+        // 执行战吼
+        if (PropertyChecker.check(minion.getProperties()).contains("战吼")) {
+            DescInvoker.invoke(minion.getBattleCry(), src, tar);
         }
 
+        // 移除手牌
         src.getHandCard().remove(minion);
+        // 场面新增随从
         src.getScene().add(minion);
+        // 扣除水晶
         src.setCurCrystal(src.getCurCrystal() - minion.getCost());
     }
 }

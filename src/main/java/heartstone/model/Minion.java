@@ -17,16 +17,15 @@ public class Minion implements Card, GameCharacter, Cloneable {
     private int curBlood;
     // 种族: 鱼人, 野兽, 元素, 图腾
     private String race;
-    // 属性: 嘲讽, 吸血, 风怒, 突袭, 冲锋, 战吼, 亡语, 圣盾, 复生
-    private List<String> properties;
+    // 属性: 战吼, 嘲讽, 亡语, 吸血, 风怒, 突袭, 冲锋, 圣盾, 复生
+    private String properties;
 
     /**
      *  战吼内容: action_object_opcode
-     *       eg: hurt_hero_3 heal_minion_4
+     *       eg: hurt_hero_3 heal_minion_4 heal_any_2
      *           aoe_enemyMinion_4 aoe_selfMinion_1 aoe_allMinion_3
      *
      */
-
     private String battleCry;
     private String profession = "all";
 
@@ -35,6 +34,23 @@ public class Minion implements Card, GameCharacter, Cloneable {
         this.cost = cost;
         this.attack = attack;
         this.blood = blood;
+    }
+
+    public Minion(String name, Integer cost, Integer attack, Integer blood, String properties) {
+        this.name = name;
+        this.cost = cost;
+        this.attack = attack;
+        this.blood = blood;
+        this.properties = properties;
+    }
+
+    public Minion(String name, Integer cost, Integer attack, Integer blood, String properties, String battleCry) {
+        this.name = name;
+        this.cost = cost;
+        this.attack = attack;
+        this.blood = blood;
+        this.properties = properties;
+        this.battleCry = battleCry;
     }
 
     @Override

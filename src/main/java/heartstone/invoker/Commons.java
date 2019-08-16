@@ -13,7 +13,7 @@ public class Commons {
      * @param damage 造成伤害数量
      * @return 目标是否死亡
      */
-    public static boolean causeDamage(GameCharacter target, int damage) {
+    public static boolean damage(GameCharacter target, int damage) {
         if (target instanceof Profession) {
             Profession t = (Profession)target;
             t.setCurBlood(t.getCurBlood() - damage);

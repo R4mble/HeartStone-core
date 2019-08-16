@@ -44,11 +44,23 @@ public class Box {
                             o.get("name").toString(),
                             o.get("skill").toString());
                 } else if (c == Minion.class) {
-                    t = c.getConstructor(String.class, Integer.class, Integer.class, Integer.class).newInstance(
-                            o.get("name").toString(),
-                            Integer.valueOf(o.get("cost").toString()),
-                            Integer.valueOf(o.get("attack").toString()),
-                            Integer.valueOf(o.get("blood").toString()));
+                    if (o.get("battleCry") != null) {
+                        t = c.getConstructor(String.class, Integer.class, Integer.class, Integer.class, String.class, String.class).newInstance(
+                                o.get("name").toString(),
+                                Integer.valueOf(o.get("cost").toString()),
+                                Integer.valueOf(o.get("attack").toString()),
+                                Integer.valueOf(o.get("blood").toString()),
+                                o.get("properties").toString(),
+                                o.get("battleCry").toString()
+                        );
+                    } else {
+                        t = c.getConstructor(String.class, Integer.class, Integer.class, Integer.class).newInstance(
+                                o.get("name").toString(),
+                                Integer.valueOf(o.get("cost").toString()),
+                                Integer.valueOf(o.get("attack").toString()),
+                                Integer.valueOf(o.get("blood").toString()));
+                    }
+
                 } else if (c == Spell.class) {
                     t = c.getConstructor(String.class, Integer.class, String.class).newInstance(
                             o.get("name").toString(),

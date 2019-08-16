@@ -21,19 +21,7 @@ class SpellInvoker {
             throw new CardNotFoundException();
         }
 
-        String desc = spell.getDesc();
-
-        if (desc.startsWith("addCurCrystal")) {
-            src.setCurCrystal(src.getCurCrystal() +
-                    Integer.parseInt(desc.substring("addCurCrystal".length())));
-        } else if (desc.startsWith("hurtMinion")) {
-            if (tar instanceof Profession) {
-                throw new WrongTargetException();
-            }
-            Commons.causeDamage(tar, Integer.parseInt(desc.substring("hurtMinion".length())));
-        } else if (desc.startsWith("hurt")) {
-            Commons.causeDamage(tar, Integer.parseInt(desc.substring("hurt".length())));
-        }
+        DescInvoker.invoke(spell.getDesc(), src, tar);
 
         src.getHandCard().remove(spell);
         src.setCurCrystal(src.getCurCrystal() - spell.getCost());

@@ -57,7 +57,7 @@ public class BattleTest {
         shengqishi.setCurBlood(23);
         fashi.setCrystal(3);
 
-        // 法师使用巫医
+        // 法师对圣骑士使用巫医
         CardExec.exec(fashi, wuyi, shengqishi);
         // 法师使用幸运币
         CardExec.exec(fashi, luckCoin, null);

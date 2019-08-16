@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-import static heartstone.invoker.Commons.causeDamage;
+import static heartstone.invoker.Commons.damage;
 
 // 九职业技能
 class Skill {
@@ -37,12 +37,12 @@ class Skill {
 
     @ManaCost(value = 2, desc = "法师技能")
     public void fire(GameCharacter tar) {
-        causeDamage(tar, 1);
+        damage(tar, 1);
     }
 
     @ManaCost(value = 2, desc = "猎人技能")
     public void shoot(GameCharacter tar) {
-        causeDamage(tar, 2);
+        damage(tar, 2);
     }
 
     @ManaCost(value = 2, desc = "牧师技能")
@@ -57,7 +57,7 @@ class Skill {
 
     @ManaCost(value = 2, desc = "术士技能")
     public void drawCard(Profession src) {
-        causeDamage(src, 2);
+        damage(src, 2);
         CardDrawer.draw(src, 1);
     }
 
