@@ -17,7 +17,7 @@ public class Minion implements Card, GameCharacter, Cloneable {
     private int curBlood;
     // 种族: 鱼人, 野兽, 元素, 图腾
     private String race;
-    // 属性: 战吼, 嘲讽, 亡语, 吸血, 风怒, 突袭, 冲锋, 圣盾, 复生
+    // 属性: 战吼, 嘲讽, 亡语, 吸血, 风怒, 突袭, 冲锋, 圣盾, 复生...
     private String properties;
 
     /**
@@ -34,6 +34,7 @@ public class Minion implements Card, GameCharacter, Cloneable {
         this.cost = cost;
         this.attack = attack;
         this.blood = blood;
+        this.curAttack = attack;
     }
 
     public Minion(String name, Integer cost, Integer attack, Integer blood, String properties) {
@@ -42,6 +43,7 @@ public class Minion implements Card, GameCharacter, Cloneable {
         this.attack = attack;
         this.blood = blood;
         this.properties = properties;
+        this.curAttack = attack;
     }
 
     public Minion(String name, Integer cost, Integer attack, Integer blood, String properties, String battleCry) {
@@ -51,6 +53,7 @@ public class Minion implements Card, GameCharacter, Cloneable {
         this.blood = blood;
         this.properties = properties;
         this.battleCry = battleCry;
+        this.curAttack = attack;
     }
 
     @Override

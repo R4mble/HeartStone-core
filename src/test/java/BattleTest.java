@@ -70,20 +70,5 @@ public class BattleTest {
         shengqishi.setCrystal(10);
     }
 
-    @Test
-    public void attack() {
-        Profession fashi = Box.getProfession("法师");
-        Profession shengqishi = Box.getProfession("圣骑士");
-
-        Minion wuyi1 = Box.getMinion("巫医");
-        Minion wuyi2 = Box.getMinion("巫医");
-
-        fashi.getScene().add(wuyi1);
-        shengqishi.getScene().add(wuyi2);
-
-        MinionCmd.attack(fashi, wuyi1, wuyi2);
-
-
-    }
 
 }

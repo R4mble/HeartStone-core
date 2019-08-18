@@ -6,7 +6,6 @@ import heartstone.model.GameCharacter;
 import heartstone.model.Minion;
 import heartstone.model.Profession;
 
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

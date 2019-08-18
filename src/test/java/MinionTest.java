@@ -1,6 +1,7 @@
 import heartstone.box.Box;
 import heartstone.invoker.CardDrawer;
 import heartstone.invoker.CardExec;
+import heartstone.invoker.MinionCmd;
 import heartstone.invoker.SkillInvoker;
 import heartstone.model.Card;
 import heartstone.model.Minion;
@@ -11,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MinionTest {
-    private SkillInvoker skillInvoker;
 
     @Test
     public void basic() {
@@ -49,8 +49,22 @@ public class MinionTest {
         assert fashi.getCurBlood() == 29;
     }
 
+
     @Test
     public void attack() {
+        Profession fashi = Box.getProfession("法师");
+        Profession shengqishi = Box.getProfession("圣骑士");
 
+        Minion wuyi1 = Box.getMinion("巫医");
+        Minion wuyi2 = Box.getMinion("巫医");
+
+        fashi.getScene().add(wuyi1);
+        shengqishi.getScene().add(wuyi2);
+
+        MinionCmd.attack(fashi, wuyi1, wuyi2, shengqishi);
+
+        System.out.println(fashi.getScene().size());
+        assert fashi.getScene().size() == 0;
+        assert shengqishi.getScene().size() == 0;
     }
 }

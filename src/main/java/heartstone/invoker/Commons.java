@@ -11,7 +11,7 @@ public class Commons {
      * 造成伤害的通用函数
      * @param target 目标
      * @param damage 造成伤害数量
-     * @return 目标是否死亡
+     * @return 目标是否死亡: true-死亡
      */
     public static boolean damage(GameCharacter target, int damage) {
         if (target instanceof Profession) {

@@ -10,6 +10,7 @@ import heartstone.model.Profession;
 // 随从派遣器
 public class MinionCmd {
 
+    // 随从上场
     static void send(Profession src, Minion minion, @Nullable GameCharacter tar) {
         // 检查水晶
         if (src.getCurCrystal() < minion.getCost()) {
@@ -41,6 +42,7 @@ public class MinionCmd {
         src.setCurCrystal(src.getCurCrystal() - minion.getCost());
     }
 
+    // 随从攻击
     public static void attack(Profession src, Minion minion, GameCharacter tar, Profession opponent) {
         // 检查场上是否存在该随从
         if (!src.getScene().contains(minion)) {
@@ -52,8 +54,8 @@ public class MinionCmd {
             throw new ZeroAttackException();
         }
 
-        boolean tarAlive = Commons.damage(tar, minion.getCurAttack());
-        if (!tarAlive) {
+        boolean tarDead = Commons.damage(tar, minion.getCurAttack());
+        if (tarDead) {
             opponent.getScene().remove(tar);
         }
 
@@ -66,7 +68,9 @@ public class MinionCmd {
             targetAttack = m.getCurAttack();
         }
 
-        boolean minionAlive = Commons.damage(minion, targetAttack);
-
+        boolean minionDead = Commons.damage(minion, targetAttack);
+        if (minionDead) {
+            src.getScene().remove(minion);
+        }
     }
 }
