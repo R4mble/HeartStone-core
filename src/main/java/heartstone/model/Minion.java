@@ -1,12 +1,8 @@
 package heartstone.model;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 @Data
-@NoArgsConstructor
 public class Minion implements Card, GameCharacter, Cloneable {
     private String name;
     private int cost;

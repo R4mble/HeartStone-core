@@ -56,7 +56,10 @@ class Skill {
 
     @ManaCost(value = 2, desc = "术士技能")
     public void drawCard(Profession src) {
-        damage(src, 2);
+        boolean isDead = damage(src, 2);
+        if (isDead) {
+            GameOver.over(src);
+        }
         CardDrawer.draw(src, 1);
     }
 
@@ -84,7 +87,6 @@ class Skill {
         }
 
         int randomIndex = new Random().nextInt(availableTotems.size());
-
         scene.add(availableTotems.get(randomIndex));
         src.setScene(scene);
     }

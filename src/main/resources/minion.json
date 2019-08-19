@@ -18,5 +18,7 @@
   {"name": "食人魔法师", "cost": "4", "attack": "4", "blood": "4"},
   {"name": "古拉巴什狂暴者", "cost": "5", "attack": "2", "blood": "7"},
   {"name": "暗鳞治愈者", "cost": "5", "attack": "4", "blood": "5"},
-  {"name": "霜狼督军", "cost": "5", "attack": "4", "blood": "4"}
+  {"name": "霜狼督军", "cost": "5", "attack": "4", "blood": "4"},
+  {"name": "火焰杂耍者", "cost": "2", "attack": "2", "blood": "3"},
+  {"name": "了不起的杰弗里斯", "cost": "2", "attack": "3", "blood": "2"}
 ]

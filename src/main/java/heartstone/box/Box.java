@@ -7,7 +7,6 @@ import heartstone.model.Spell;
 import heartstone.model.Weapon;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.*;
 
 /**
@@ -17,10 +16,10 @@ import java.util.*;
 public class Box {
 
     private static ObjectMapper mapper = new ObjectMapper();
-    private static Map<String, Minion> minions = new HashMap<>();
-    private static Map<String, Weapon> weapons = new HashMap<>();
-    private static Map<String, Spell> spells = new HashMap<>();
-    private static Map<String, Profession> professions = new HashMap<>();
+    public static Map<String, Minion> minions = new HashMap<>();
+    public static Map<String, Weapon> weapons = new HashMap<>();
+    public static Map<String, Spell> spells = new HashMap<>();
+    public static Map<String, Profession> professions = new HashMap<>();
 
     static {
         weapons.put("匕首", new Weapon("匕首", 1, 1));

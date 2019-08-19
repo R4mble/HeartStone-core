@@ -1,8 +1,6 @@
 package heartstone.model;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.util.LinkedList;
 import java.util.List;
 
