@@ -10,11 +10,11 @@ import heartstone.model.Spell;
 // 法术释放器
 class SpellInvoker {
 
-    static void invoke(Profession src, Spell spell, @Nullable GameCharacter tar)  {
+    static boolean invoke(Profession src, Spell spell, @Nullable GameCharacter tar)  {
 
         // 检查水晶
         if (src.getCurCrystal() < spell.getCost()) {
-            throw new ManaLessException();
+            throw new ManaLessException(spell.getCost(), src.getCurCrystal());
         }
 
         // 检查手牌
@@ -26,7 +26,10 @@ class SpellInvoker {
 
         // 移除手牌
         src.getHandCard().remove(spell);
+
         // 扣除水晶
         src.setCurCrystal(src.getCurCrystal() - spell.getCost());
+
+        return true;
     }
 }

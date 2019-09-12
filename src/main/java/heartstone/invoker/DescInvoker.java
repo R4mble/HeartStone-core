@@ -6,8 +6,7 @@ import heartstone.model.Minion;
 import heartstone.model.Profession;
 
 /**
- * @author Wangyl
- * @date 2019/8/16
+ * 执行卡牌描述
  */
 public class DescInvoker {
 

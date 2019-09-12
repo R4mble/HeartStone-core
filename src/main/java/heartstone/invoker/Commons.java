@@ -51,7 +51,22 @@ public class Commons {
     public static void printHandCard(Profession p) {
         List<Card> cards = p.getHandCard();
         System.out.print(p.getName() + "的手牌是: ");
-        cards.forEach(c -> System.out.print(c.getName() + " "));
+
+        for (int i = 0; i < cards.size(); i++) {
+            System.out.print(i + 1 + "." + cards.get(i).getName() + " ");
+        }
+
+        System.out.println();
+    }
+
+    public static void printScene(Profession p) {
+        List<Minion> cards = p.getScene();
+        System.out.print(p.getName() + "的场面是: ");
+
+        for (int i = 0; i < cards.size(); i++) {
+            System.out.print(i + 1 + "." + cards.get(i).getName() + " ");
+        }
+
         System.out.println();
     }
 }

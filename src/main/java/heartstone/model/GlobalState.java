@@ -43,22 +43,70 @@ public class GlobalState {
         CardDrawer.draw(A, 3);
         CardDrawer.draw(B, 4);
         B.getHandCard().add(Box.getSpell("幸运币"));
-        Commons.printHandCard(A);
+
+        // 轮到谁: 1-A, 2-B
+        int turn = 1;
+        // 回合数
+        int crystal = 1;
+        // 回合数
+        int round = 1;
 
         while (A.isAlive() && B.isAlive()) {
+            Profession cur;
+            Profession enemy;
 
+            if (turn == 1) {
+                cur = A;
+                enemy = B;
+            } else  {
+                cur = B;
+                enemy = A;
+            }
 
-            Scanner sc = new Scanner(System.in);
-            int input = sc.nextInt();
-            if (input == 0) {
-                System.out.println("空过");
-            } else {
+            System.out.println("========当前是第" + round + "回合," + cur.getName() + "出牌=========");
+            cur.setCrystal(crystal);
+
+            CardDrawer.draw(cur, 1);
+            Commons.printHandCard(cur);
+
+            boolean flag = false;
+            while (!flag) {
+                System.out.println("请出牌(0 - 结束回合): ");
+                Scanner sc = new Scanner(System.in);
+                int cardIndex = sc.nextInt();
+                if (cardIndex == 0) {
+                    System.out.println("你的回合结束~\n\n");
+                    break;
+                }
+
+                if (cardIndex - 1 > cur.getHandCard().size()) {
+                    System.out.println("你只有" + cur.getHandCard().size() + "张牌!");
+                    continue;
+                }
+                Card selectedCard = cur.getHandCard().get(cardIndex - 1);
                 try {
-                    CardExec.exec(A, A.getHandCard().get(input), B);
+                    flag = CardExec.exec(cur, selectedCard, enemy);
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
+                if (flag) {
+                    System.out.println(cur.getName() + "使用了[" + selectedCard.getName() +
+                                "], 剩余法力水晶数: " + cur.getCurCrystal());
+
+                    Commons.printScene(cur);
+                    Commons.printHandCard(cur);
+                }
             }
+
+            if (cur == B && crystal < 10) {
+                crystal += 1;
+            }
+
+            if (cur == B) {
+                round += 1;
+            }
+
+            turn *= -1;
         }
 
         return A.isAlive() ? 1 : B.isAlive() ? 2 : 0;

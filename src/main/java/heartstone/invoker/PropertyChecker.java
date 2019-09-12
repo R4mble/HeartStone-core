@@ -1,13 +1,9 @@
 package heartstone.invoker;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-/**
- * @author Wangyl
- * @date 2019/8/16
- */
+
 public class PropertyChecker {
 
     private static String[] propertyArr = {"战吼", "嘲讽", "亡语", "吸血", "风怒", "突袭", "冲锋", "圣盾", "复生", "磁力"};

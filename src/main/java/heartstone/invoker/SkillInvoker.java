@@ -21,7 +21,7 @@ public class SkillInvoker {
             ManaCost manaCost = method.getAnnotation(ManaCost.class);
 
             if (src.getCurCrystal() < manaCost.value()) {
-                throw new ManaLessException();
+                throw new ManaLessException(manaCost.value(), src.getCurCrystal());
             }
             method.invoke(skill, src);
 
@@ -43,7 +43,7 @@ public class SkillInvoker {
             ManaCost manaCost = method.getAnnotation(ManaCost.class);
 
             if (src.getCurCrystal() < manaCost.value()) {
-                throw new ManaLessException();
+                throw new ManaLessException(manaCost.value(), src.getCurCrystal());
             }
 
             method.invoke(skill, tar);

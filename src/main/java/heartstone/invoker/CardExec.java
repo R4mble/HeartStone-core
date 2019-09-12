@@ -7,13 +7,17 @@ import heartstone.model.Minion;
 import heartstone.model.Profession;
 import heartstone.model.Spell;
 
+/**
+ * 使用一张牌
+ */
 public class CardExec {
 
-    public static void exec(Profession src, Card card, @Nullable GameCharacter tar) {
+    public static boolean exec(Profession src, Card card, @Nullable GameCharacter tar) {
         if (card instanceof Minion) {
-            MinionCmd.send(src, (Minion)card, tar);
+            return MinionCmd.send(src, (Minion)card, tar);
         } else if (card instanceof Spell) {
-            SpellInvoker.invoke(src, (Spell)card, tar);
+            return SpellInvoker.invoke(src, (Spell)card, tar);
         }
+        return false;
     }
 }

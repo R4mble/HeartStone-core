@@ -13,7 +13,9 @@ import java.util.Random;
 
 import static heartstone.invoker.Commons.damage;
 
-// 九职业技能
+/**
+ * 九职业技能
+ */
 class Skill {
 
     @ManaCost(value = 2, desc = "战士技能")

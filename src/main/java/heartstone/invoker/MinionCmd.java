@@ -11,10 +11,10 @@ import heartstone.model.Profession;
 public class MinionCmd {
 
     // 随从上场
-    static void send(Profession src, Minion minion, @Nullable GameCharacter tar) {
+    static boolean send(Profession src, Minion minion, @Nullable GameCharacter tar) {
         // 检查水晶
         if (src.getCurCrystal() < minion.getCost()) {
-            throw new ManaLessException();
+            throw new ManaLessException(minion.getCost(), src.getCurCrystal());
         }
 
         // 检查手牌
@@ -40,6 +40,8 @@ public class MinionCmd {
         src.getScene().add(minion);
         // 扣除水晶
         src.setCurCrystal(src.getCurCrystal() - minion.getCost());
+
+        return true;
     }
 
     // 随从攻击

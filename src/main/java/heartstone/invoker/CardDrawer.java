@@ -3,7 +3,9 @@ package heartstone.invoker;
 import heartstone.model.Card;
 import heartstone.model.Profession;
 
-// 抽牌器
+/**
+ * 抽牌器
+ */
 public class CardDrawer {
 
     public static void draw(Profession src, int num) {
