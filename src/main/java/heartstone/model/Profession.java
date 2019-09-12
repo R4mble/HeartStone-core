@@ -36,6 +36,10 @@ public class Profession implements GameCharacter, Cloneable {
         return curBlood + armor;
     }
 
+    public boolean isAlive() {
+        return curBlood > 0;
+    }
+
     @Override
     public Object clone() {
         try {

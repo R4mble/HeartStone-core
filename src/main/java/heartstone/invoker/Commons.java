@@ -1,8 +1,12 @@
 package heartstone.invoker;
 
+import heartstone.model.Card;
 import heartstone.model.GameCharacter;
 import heartstone.model.Minion;
 import heartstone.model.Profession;
+
+import java.util.LinkedList;
+import java.util.List;
 
 // 公共函数
 public class Commons {
@@ -42,5 +46,12 @@ public class Commons {
                 t.setCurBlood(t.getCurBlood() + blood);
             }
         }
+    }
+
+    public static void printHandCard(Profession p) {
+        List<Card> cards = p.getHandCard();
+        System.out.print(p.getName() + "的手牌是: ");
+        cards.forEach(c -> System.out.print(c.getName() + " "));
+        System.out.println();
     }
 }
